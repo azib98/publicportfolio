@@ -1,0 +1,131 @@
+/* Portfolio Section */
+.portfolio-section {
+  border-top: none;
+  background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+  background-size: 600% 600%;
+  animation: gradientShift 20s ease infinite;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  color: #fff;
+}
+
+/* Grid Layout */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Flip Card Container */
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px; /* 3D perspective for flip */
+  min-height: 400px; /* heighty cards */
+}
+
+/* Flip Card Inner */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back shared styles */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Front side */
+.flip-card-front {
+  background: #0ffffaa;
+
+  color: white;
+}
+
+/* Back side */
+.flip-card-back {
+  background-color: #0f2027;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  position: relative;
+}
+
+/* Back side image */
+.flip-card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* natural image without stretching */
+  border-radius: 12px;
+}
+
+/* Back side text */
+.view-images-text {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #00ffffaa;
+  font-weight: 500;
+}
+
+/* Card hover effect */
+.portfolio-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Front content */
+.portfolio-card-content h3 {
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-card-content p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.tech {
+  font-size: 0.8rem;
+  color: #00ffffaa;
+}

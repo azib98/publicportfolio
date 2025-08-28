@@ -1,0 +1,254 @@
+/* Background gradient animation */
+.home-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+  background-size: 600% 600%;
+  animation: gradientShift 20s ease infinite;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: none;
+}
+
+/* Pure CSS Stars */
+.stars {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow: 50px 100px white, 120px 200px white, 200px 50px white,
+    300px 300px white, 400px 150px white, 500px 400px white, 600px 100px white,
+    700px 250px white, 800px 50px white, 900px 300px white;
+  animation: starMove 60s linear infinite;
+  z-index: 0;
+}
+
+/* Floating shapes */
+.floating-shapes .shape {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  opacity: 0.6;
+  animation: float 6s ease-in-out infinite;
+  z-index: 1;
+}
+
+.floating-shapes .circle {
+  border-radius: 50%;
+  background: #00ffff;
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.floating-shapes .triangle {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 60px solid #ff6ec7;
+  top: 40%;
+  left: 70%;
+  animation-delay: 2s;
+}
+
+.floating-shapes .square {
+  background: #fffa65;
+  border-radius: 5px;
+  top: 70%;
+  left: 30%;
+  animation-delay: 4s;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* Stars animation */
+@keyframes starMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-2000px);
+  }
+}
+
+/* Gradient background animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Hero content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-name {
+  font-size: 4rem;
+  margin: 0;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+.hero-title {
+  font-size: 1.5rem;
+  margin: 10px 0 40px;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+}
+
+/* Scroll button */
+.scroll-down {
+  background: rgba(0, 255, 255, 0.2);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  color: #00ffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+  transition: all 0.3s ease;
+}
+
+.scroll-down:hover {
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff;
+  transform: scale(1.1);
+}
+.floating-tech-left {
+  position: fixed;
+  top: 50%;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.tech-icon {
+  color: #61dafb; /* React blue as example */
+  transition: transform 0.3s, color 0.3s;
+  cursor: default;
+  animation: float 4s ease-in-out infinite;
+}
+
+.tech-icon:hover {
+  transform: scale(1.2);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating-tech-left {
+  position: fixed;
+  top: 50%;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.tech-icon {
+  color: #61dafb; /* You can customize per icon if you want */
+  transition: transform 0.3s, color 0.3s;
+  cursor: default;
+  animation: float 4s ease-in-out infinite;
+}
+
+.tech-icon:hover {
+  transform: scale(1.2);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.floating-tech-left {
+  position: fixed;
+  top: 50%;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.tech-icon {
+  color: #61dafb; /* React blue as example */
+  transition: transform 0.3s, color 0.3s;
+  cursor: default;
+  animation: float 4s ease-in-out infinite;
+}
+
+.tech-icon:hover {
+  transform: scale(1.2);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating-social {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.social-icon {
+  color: white;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-icon:hover {
+  color: #0a66c2; /* LinkedIn blue or GitHub white */
+  transform: scale(1.2);
+}
+.row.g-4 {
+  gap: 2rem;
+}

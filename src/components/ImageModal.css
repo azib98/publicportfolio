@@ -1,0 +1,16 @@
+.custom-modal-content {
+  width: 100%;
+  height: 100%;
+  background-color: #1e2a38;
+  color: white;
+  border-radius: 12px;
+}
+
+.modal-header .btn-close {
+  filter: invert(1);
+}
+
+/* Close button visible as black */
+.modal-header .btn-close {
+  background-color: black; /* black X */
+}
