@@ -68,13 +68,12 @@
   justify-content: space-between;
   padding: 1.5rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 /* Front side */
 .flip-card-front {
-  background: #0ffffaa;
-
-  color: white;
+  background: #112d39;
 }
 
 /* Back side */

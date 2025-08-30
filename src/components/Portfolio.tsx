@@ -80,7 +80,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Atelier 360",
+    title: "ATELIER 360",
     description:
       "Responsive website showcasing architecture, interior, and landscape projects with interactive gallery.",
     tech: "Web Development | WordPress | Responsive Design",
@@ -96,6 +96,24 @@ const projects: Project[] = [
       atelierP9,
       atelierP10,
       atelierP11,
+    ],
+  },
+  {
+    title: "DWANIQUE AUTO SALES",
+    description:
+      "Car selling platform with React, TypeScript, Laravel, and MySQL backend. Smooth search and filter features.",
+    tech: "Web Development | React | Typescript | MySQL | SCSS",
+    images: [
+      dwanique1,
+      dwanique2,
+      dwanique3,
+      dwanique4,
+      dwanique5,
+      dwanique6,
+      dwanique7,
+      dwanique8,
+      dwanique9,
+      dwanique10,
     ],
   },
   {
@@ -115,24 +133,6 @@ const projects: Project[] = [
       tawakkalP9,
       tawakkalP10,
       tawakkalP11,
-    ],
-  },
-  {
-    title: "DWANIQUE AUTO SALES",
-    description:
-      "Car selling platform with React, TypeScript, Laravel, and MySQL backend. Smooth search and filter features.",
-    tech: "Web Development | React | Typescript | MySQL | SCSS",
-    images: [
-      dwanique1,
-      dwanique2,
-      dwanique3,
-      dwanique4,
-      dwanique5,
-      dwanique6,
-      dwanique7,
-      dwanique8,
-      dwanique9,
-      dwanique10,
     ],
   },
   {
@@ -179,7 +179,7 @@ const projects: Project[] = [
     title: "MARKYTECH",
     description:
       "Company portfolio website built with a custom WordPress theme, responsive design, and performance optimization.",
-    tech: "WordPress | HTML5 | CSS3",
+    tech: "WordPress | Web Development | WordPress | Custom Theme | Portfolio",
     images: [markyP1, markyP2, markyP3, markyP4, markyP5, markyP6],
   },
 ];
@@ -205,7 +205,22 @@ const Portfolio: React.FC = () => {
             <div className="flip-card-inner">
               {/* Front */}
               <div className="flip-card-front">
-                <h3>{project.title}</h3>
+                <div
+                  style={{
+                    background: "white",
+                    color: "#203a43",
+                    borderRadius: "5px",
+                    padding: "5%",
+                    height: "23%",
+                    textAlign: "center",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    display: "flex",
+                  }}
+                >
+                  <h3>{project.title}</h3>
+                </div>
+
                 <p>{project.description}</p>
                 <span className="tech">{project.tech}</span>
               </div>

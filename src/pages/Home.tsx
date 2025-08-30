@@ -6,6 +6,8 @@ import {
   FaReact,
   FaWordpress,
   FaArrowDown,
+  FaEnvelope,
+  FaFileDownload,
 } from "react-icons/fa";
 import { SiMysql, SiMongodb, SiNodedotjs, SiLaravel } from "react-icons/si";
 import Portfolio from "../components/Portfolio";
@@ -93,6 +95,15 @@ const Home: React.FC = () => {
           <SiNodedotjs size={40} className="tech-icon" />
         </div>
 
+        <div className="hero-icons-mobile">
+          <FaReact size={20} className="tech-icon-mobile" />
+          <FaWordpress size={20} className="tech-icon-mobile" />
+          <SiLaravel size={20} className="tech-icon-mobile" />
+          <SiMysql size={20} className="tech-icon-mobile" />
+          <SiMongodb size={20} className="tech-icon-mobile" />
+          <SiNodedotjs size={20} className="tech-icon-mobile" />
+        </div>
+
         {/* Social Icons */}
         <div className="floating-social">
           <a
@@ -100,6 +111,7 @@ const Home: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon"
+            title="Github"
           >
             <FaGithub size={30} />
           </a>
@@ -108,8 +120,68 @@ const Home: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon"
+            title="Linkedin"
           >
             <FaLinkedin size={30} />
+          </a>
+          <a
+            href="mailto:azib2468@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon"
+            title="Email"
+            aria-label="Send Email"
+          >
+            <FaEnvelope size={30} />
+          </a>
+          <a
+            href="/fullstack.pdf"
+            download="Azib_Tanveer_CV.pdf"
+            className="social-icon"
+            target="_blank"
+            title="CV"
+          >
+            <FaFileDownload size={30} />
+          </a>
+        </div>
+        {/* Mobile Social Icons */}
+        <div className="floating-social-mobile">
+          <a
+            href="https://github.com/azib98"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon-mobile"
+            title="Github"
+          >
+            <FaGithub size={20} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/azib-tanveer-7405a61b3/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon-mobile"
+            title="Linkedin"
+          >
+            <FaLinkedin size={20} />
+          </a>
+          <a
+            href="mailto:azib2468@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon-mobile"
+            title="Email"
+            aria-label="Send Email"
+          >
+            <FaEnvelope size={20} />
+          </a>
+          <a
+            href="/fullstack.pdf"
+            download="Azib_Tanveer_CV.pdf"
+            className="social-icon-mobile"
+            target="_blank"
+            title="CV"
+          >
+            <FaFileDownload size={20} />
           </a>
         </div>
       </section>
