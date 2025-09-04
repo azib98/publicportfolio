@@ -1,8 +1,8 @@
 .footer {
-  /* background-color: #084545; */
   background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
   padding: 0.4rem;
   color: #f0f0f0;
   text-align: center;
   font-family: "Roboto", sans-serif;
+  border: none;
 }
