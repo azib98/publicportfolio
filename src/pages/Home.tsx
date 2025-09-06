@@ -16,7 +16,6 @@ import {
   SiLaravel,
   SiPhp,
 } from "react-icons/si";
-import Portfolio from "../components/Portfolio";
 import "./Home.css";
 
 const skills: string[] = [
