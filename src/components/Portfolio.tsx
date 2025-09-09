@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ImageModal from "./ImageModal"; // simple modal component
 import "../components/Portfolio.css";
 
@@ -188,6 +188,11 @@ const Portfolio: React.FC = () => {
   const [modalImages, setModalImages] = useState<string[]>([]);
   const [modalTitle, setModalTitle] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [flipped, setFlipped] = useState<boolean[]>(
+    new Array(projects.length).fill(false)
+  );
+
+  const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   const openModal = (images: string[], title: string) => {
     setModalImages(images);
@@ -197,13 +202,73 @@ const Portfolio: React.FC = () => {
 
   const closeModal = () => setShowModal(false);
 
+  useEffect(() => {
+    // Auto-flip only on mobile
+    if (window.innerWidth > 768) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = cardRefs.current.indexOf(
+              entry.target as HTMLDivElement
+            );
+            if (index !== -1) {
+              // Flip card
+              setFlipped((prev) => {
+                const newState = [...prev];
+                newState[index] = true;
+                return newState;
+              });
+
+              // Flip back after 2 seconds
+              setTimeout(() => {
+                setFlipped((prev) => {
+                  const newState = [...prev];
+                  newState[index] = false;
+                  return newState;
+                });
+              }, 2000);
+            }
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    cardRefs.current.forEach((card) => {
+      if (card instanceof HTMLDivElement) observer.observe(card);
+    });
+
+    return () => {
+      cardRefs.current.forEach((card) => {
+        if (card) observer.unobserve(card);
+      });
+    };
+  }, []);
+
   return (
     <section className="portfolio-section">
       <div className="portfolio-grid">
         {projects.map((project, idx) => (
-          <div key={idx} className="flip-card">
-            <div className="flip-card-inner">
-              {/* Front */}
+          <div
+            key={idx}
+            className={`flip-card ${flipped[idx] ? "flipped" : ""}`}
+            ref={(el) => {
+              cardRefs.current[idx] = el;
+            }}
+          >
+            <div
+              className="flip-card-inner"
+              onClick={() =>
+                setFlipped((prev) => {
+                  const newState = [...prev];
+                  newState[idx] = !newState[idx];
+                  return newState;
+                })
+              }
+            >
+              {/* Front Side */}
               <div className="flip-card-front">
                 <div
                   style={{
@@ -213,22 +278,24 @@ const Portfolio: React.FC = () => {
                     padding: "5%",
                     height: "23%",
                     textAlign: "center",
+                    display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    display: "flex",
                   }}
                 >
                   <h3>{project.title}</h3>
                 </div>
-
                 <p>{project.description}</p>
                 <span className="tech">{project.tech}</span>
               </div>
 
-              {/* Back */}
+              {/* Back Side */}
               <div
                 className="flip-card-back"
-                onClick={() => openModal(project.images, project.title)}
+                onClick={(e) => {
+                  e.stopPropagation(); // prevent parent flip
+                  openModal(project.images, project.title);
+                }}
               >
                 <img
                   src={project.images[0]}

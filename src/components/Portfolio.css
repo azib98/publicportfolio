@@ -128,3 +128,25 @@
   font-size: 0.8rem;
   color: #00ffffaa;
 }
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Disable hover flip on mobile */
+@media (max-width: 768px) {
+  .flip-card:hover .flip-card-inner {
+    transform: none;
+  }
+}
+
+/* Flip on hover - desktop only */
+@media (min-width: 769px) {
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Auto-flip class for mobile */
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
